@@ -1,0 +1,7 @@
+{
+	"name": "Ubuntu",
+	"build": {
+		"context": "..",
+		"dockerfile": "./Dockerfile"
+	},
+}
