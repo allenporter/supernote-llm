@@ -1,4 +1,4 @@
 {
 	"name": "Ubuntu",
-	"image": "ubuntu:jammy-20231128"
+	"image": "lanyitin/intel-opencl-icd:latest"
 }
