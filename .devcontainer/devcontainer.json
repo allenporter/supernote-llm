@@ -1,7 +1,4 @@
 {
 	"name": "Ubuntu",
-	"build": {
-		"context": "..",
-		"dockerfile": "./Dockerfile"
-	},
+	"image: "ubuntu:jammy-20231128"
 }
