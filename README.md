@@ -6,11 +6,17 @@ Consuming contents of a Supernote Notebook for use with LLMs
 
 Using supernote-tool:
 
+See [extract_text/](extract_text/).
+
 Populate `notes/` with supernote files that contain text. The text will be
 extracted into `texts/`
 ```
-$ python3 supernote-llm
+$ python3 extract-text
 ```
+
+## Supernote index
+
+See jupyter notebook following the LLama Index https://docs.llamaindex.ai/en/stable/getting_started/starter_example.html tutorial.
 
 ## Development log
 
