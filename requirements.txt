@@ -7,3 +7,5 @@ pydantic-settings==2.1.0
 starlette-context==0.3.6
 llama_cpp_python[server]==0.2.27
 supernotelib==v0.4.3
+llama-index==0.9.30
+PyYaml==6.0.1

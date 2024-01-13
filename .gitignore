@@ -12,3 +12,5 @@ models/
 docs/
 notes/
 texts/
+supernote_index/storage/
+secrets.yaml
