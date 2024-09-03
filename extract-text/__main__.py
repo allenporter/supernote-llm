@@ -26,8 +26,8 @@ def main():
             if text is None:
                 _LOGGER.info(f"Skipping page %s/%s", i+1, total_pages)
                 continue
-            text_filename = TEXT_DIR / f"{note_file.stem}-{i+1}-{page_id}.txt"
-            _LOGGER.info(f"Writing page %s/%s as %s %s", i+1, total_pages, text_filename)
+            text_filename = TEXT_DIR / f"{note_file.stem}-{i:02d}-{page_id}.txt"
+            _LOGGER.info(f"Writing page %s/%s as %s", i, total_pages, text_filename)
             with open(text_filename, 'w', encoding='utf-8') as f:
                 f.write(text)
   

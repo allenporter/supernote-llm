@@ -14,6 +14,9 @@ extracted into `texts/`
 $ python3 extract-text
 ```
 
+See https://github.com/jya-dev/supernote-tool for a simpler cli to use. We're
+using it as a library above.
+
 ## Supernote index
 
 See jupyter notebook following the LLama Index https://docs.llamaindex.ai/en/stable/getting_started/starter_example.html tutorial.
