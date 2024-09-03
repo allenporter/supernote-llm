@@ -21,12 +21,13 @@ def main():
         _LOGGER.info(f"Converting %s (%s pages)", note_file, total_pages)
         converter = sn.converter.TextConverter(notebook)
         for i in range(total_pages):
+            page_id= notebook.get_page(i).get_pageid()
             text = converter.convert(i)
             if text is None:
                 _LOGGER.info(f"Skipping page %s/%s", i+1, total_pages)
                 continue
-            text_filename = TEXT_DIR / f"{note_file.stem}-{i+1}.txt"
-            _LOGGER.info(f"Writing page %s/%s as %s", i+1, total_pages, text_filename)
+            text_filename = TEXT_DIR / f"{note_file.stem}-{i+1}-{page_id}.txt"
+            _LOGGER.info(f"Writing page %s/%s as %s %s", i+1, total_pages, text_filename)
             with open(text_filename, 'w', encoding='utf-8') as f:
                 f.write(text)
   
