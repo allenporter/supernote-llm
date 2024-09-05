@@ -1,9 +1,10 @@
 ---
-prompt: The weekly log will be a snapshot of tasks to accomplish during the
+prompt: >-
+  The weekly log will be a snapshot of tasks to accomplish during the
   week. This is in the normal rapid logging format with tasks and they may be
   grouped into different categories of tasks.
 filename: Weeky-08-P2024090207150618749.png
-content: |-
+content: |
   WEEKLY 0902-0908
 
   Personal
@@ -19,8 +20,9 @@ content: |-
 ---
 filename: Weeky-08-P202409020715107646.png
 created_at: "2024-09-02T07:15:10.7646"
-label: "weekly"
-date_range: ["2024-08-26", "2024-09-02"]
+label: weekly
+date_range: ["2024-09-02", "2024-09-08"]
+title: "Weekly Log - September 2 - September 8, 2024"
 records:
   - type: note
     content: Buy groceries
