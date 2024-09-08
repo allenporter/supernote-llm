@@ -17,27 +17,26 @@ label: daily
 date: "2022-10-30"
 records:
   - type: event
+    date: "2022-10-30"
     content: Halloween Party @ 7PM @ Kid's school 
     status: migrated
-  - type: note:
+  - type: note
+    date: "2022-10-30"
     content: Pick up candy
   - type: task
+    date: "2022-10-30"
     content: Buy pumpkins
     status: completed
   - type: task
+    date: "2022-10-30"
     content: Call mom
     status: migrated
     critical: true
----
-filename: Daily-01-P20221030210760068713clbdtpKcEWTi.png
-created_at: "2022-10-30T21:07:60.068713"
-label: daily
-date: "2022-10-31"
-title: "Daily Log - October 2023"
-records:
   - type: note
+    date: "2022-10-31"
     content: Trickortreaters were so cute
   - type: task
+    date: "2022-10-31"
     content: Call mom
     status: migrated
     critical: true

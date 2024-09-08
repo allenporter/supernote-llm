@@ -20,18 +20,21 @@ content: |
 filename: Weeky-08-P2024090207150618749.png
 created_at: "2024-09-02T07:15:10.7646"
 label: weekly
-date_range: ["2024-08-26", "2024-09-02"]
+date: "2024-09-01"
 title: "Weekly Review - August 26 - September 1, 2024"
 records:
-  - note: What did I accomplish last week?
+  - type: note 
+    content: What did I accomplish last week?
     entries:
       - After completing the salary analysis, i got assigned to do the final report
       - I also got a lot of positive feedback from the team on the presentation
-  - note: What were my biggest challenges?
+  - type: note 
+    content: What were my biggest challenges?
     entries:
       - I had a hard time getting the data for the salary report
       - Perhaps I should consider asking for help
-  - note: What are my goals for next week?
+  - type: note 
+    content: What are my goals for next week?
     entries:
       - Make sure i talk to at least one parent
       - Finish the salary report

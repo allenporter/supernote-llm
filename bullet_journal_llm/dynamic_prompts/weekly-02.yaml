@@ -21,7 +21,7 @@ content: |
 filename: Weeky-08-P202409020715107646.png
 created_at: "2024-09-02T07:15:10.7646"
 label: weekly
-date_range: ["2024-09-02", "2024-09-08"]
+date: "2024-09-02"
 title: "Weekly Log - September 2 - September 8, 2024"
 records:
   - type: note

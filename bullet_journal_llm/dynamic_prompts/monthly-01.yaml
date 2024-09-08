@@ -28,16 +28,19 @@ label: monthly
 date: "2023-03-01"
 title: "Monthly Review - February 2023"
 records:
-  - note: What was the most memorable part of last month?
+  - type: note 
+    content: What was the most memorable part of last month?
     entries:
       - The trip to the mountains with the family
       - The team-building exercise at work
-  - note: What were the three biggest lessons learned?
+  - type: note 
+    content: What were the three biggest lessons learned?
     entries:
       - The importance of taking time off & quality time with family
       - The need to prioritize self-care
       - The value of open communication
-  - note: What are my goals for the upcoming month?
+  - type: note 
+    content: What are my goals for the upcoming month?
     entries:
       - Plan another weekend getaway with the family
       - Spend at least one day a week outside in nature
