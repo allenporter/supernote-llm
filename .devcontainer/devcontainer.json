@@ -1,5 +1,0 @@
-{
-	"name": "Ubuntu",
-	//"image": "ubuntu:jammy-20231128"
-	"image": "intel/oneapi-runtime:latest"
-}
