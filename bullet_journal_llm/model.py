@@ -1,5 +1,8 @@
 """Data model for bullet journal llm."""
 
+import pathlib
+
+import yaml
 from dataclasses import dataclass, field
 from mashumaro import DataClassDictMixin
 from mashumaro.config import BaseConfig
@@ -43,3 +46,24 @@ class JournalPage(DataClassDictMixin):
 
     class Config(BaseConfig):
         omit_none = False
+
+
+@dataclass
+class DynamicPrompt:
+    """A dynamic prompt."""
+
+    prompt: Prompt
+    pages: list[JournalPage] = field(default_factory=list)
+
+    @classmethod
+    def from_file(cls, filename: pathlib.Path) -> "DynamicPrompt":
+        """Create a dynamic prompt from a file."""
+        content = filename.read_text()
+        docs = list(yaml.load_all(content, Loader=yaml.CSafeLoader))
+        if not docs:
+            raise ValueError(f"Failed to parse {filename}")
+
+        prompt = Prompt.from_dict(docs[0])
+        pages = [JournalPage.from_dict(doc) for doc in docs[1:]]
+
+        return cls(prompt=prompt, pages=pages)

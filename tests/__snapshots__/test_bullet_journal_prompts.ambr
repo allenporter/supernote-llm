@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_parse_prompts[daily.yaml]
+# name: test_parse_dynamic_prompts[daily.yaml]
   dict({
     'content': '''
       1030 SUN
@@ -15,7 +15,7 @@
     'prompt': None,
   })
 # ---
-# name: test_parse_prompts[daily.yaml].1
+# name: test_parse_dynamic_prompts[daily.yaml].1
   dict({
     'created_at': '2022-10-30T21:07:60.068713',
     'date': '2022-10-30',
@@ -85,7 +85,7 @@
     ]),
   })
 # ---
-# name: test_parse_prompts[default.yaml]
+# name: test_parse_dynamic_prompts[default.yaml]
   dict({
     'content': None,
     'filename': None,
@@ -106,7 +106,7 @@
     ''',
   })
 # ---
-# name: test_parse_prompts[monthly-01.yaml]
+# name: test_parse_dynamic_prompts[monthly-01.yaml]
   dict({
     'content': '''
       FEBRUARY REVIEW
@@ -130,7 +130,7 @@
     'prompt': 'There is a special "Monthly Review" page. This is used for reflection on the previous monthy as well as the month ahead, usually in the form of prompt questions. Typicaly the monthly reflection is a time to check in on progress on quarterly or yearly goals, and to set new goals for the upcoming month.',
   })
 # ---
-# name: test_parse_prompts[monthly-01.yaml].1
+# name: test_parse_dynamic_prompts[monthly-01.yaml].1
   dict({
     'created_at': '2023-03-01T06:30:52.75344',
     'date': '2023-03-01',
@@ -178,7 +178,7 @@
     ]),
   })
 # ---
-# name: test_parse_prompts[monthly-02.yaml]
+# name: test_parse_dynamic_prompts[monthly-02.yaml]
   dict({
     'content': '''
       MARCH 2023
@@ -220,7 +220,7 @@
     'prompt': 'The is an example of the calendar part of a Monthly Log which is a list of dates and weekday names where import event, tasks, or notes can be recorded to get a sense of the month at a glance.',
   })
 # ---
-# name: test_parse_prompts[monthly-02.yaml].1
+# name: test_parse_dynamic_prompts[monthly-02.yaml].1
   dict({
     'created_at': '2023-03-01T06:42:60.113420',
     'date': '2023-03-01',
@@ -340,7 +340,7 @@
     ]),
   })
 # ---
-# name: test_parse_prompts[monthly-03.yaml]
+# name: test_parse_dynamic_prompts[monthly-03.yaml]
   dict({
     'content': '''
       MONTHLY 2023-03
@@ -358,7 +358,7 @@
     'prompt': 'The monthly log will be a snapshot of tasks to accomplish during the month. This is in the normal rapid logging format with tasks.',
   })
 # ---
-# name: test_parse_prompts[monthly-03.yaml].1
+# name: test_parse_dynamic_prompts[monthly-03.yaml].1
   dict({
     'created_at': '2023-03-01T06:42:60.113420',
     'date': '2023-03-01',
@@ -438,14 +438,14 @@
     ]),
   })
 # ---
-# name: test_parse_prompts[profile.yaml]
+# name: test_parse_dynamic_prompts[profile.yaml]
   dict({
     'content': None,
     'filename': None,
     'prompt': 'Allen Porter, software engineer from Los Angeles, CA. Uses the notebook to track work, hobbies, and family obligations.',
   })
 # ---
-# name: test_parse_prompts[rapid_log_legend.yaml]
+# name: test_parse_dynamic_prompts[rapid_log_legend.yaml]
   dict({
     'content': None,
     'filename': None,
@@ -463,7 +463,7 @@
     ''',
   })
 # ---
-# name: test_parse_prompts[weekly-01.yaml]
+# name: test_parse_dynamic_prompts[weekly-01.yaml]
   dict({
     'content': '''
       WEEKLY REVIEW 0826-0901
@@ -483,7 +483,7 @@
     'prompt': 'There is a special "Weekly Review" page. This is used for reflection on the previous week as well as the week ahead, and is usually in the form of prompt questions. ',
   })
 # ---
-# name: test_parse_prompts[weekly-01.yaml].1
+# name: test_parse_dynamic_prompts[weekly-01.yaml].1
   dict({
     'created_at': '2024-09-02T07:15:10.7646',
     'date': '2024-09-01',
@@ -529,7 +529,7 @@
     ]),
   })
 # ---
-# name: test_parse_prompts[weekly-02.yaml]
+# name: test_parse_dynamic_prompts[weekly-02.yaml]
   dict({
     'content': '''
       WEEKLY 0902-0908
@@ -550,7 +550,7 @@
     'prompt': 'The weekly log will be a snapshot of tasks to accomplish during the week. This is in the normal rapid logging format with tasks and they may be grouped into different categories of tasks.',
   })
 # ---
-# name: test_parse_prompts[weekly-02.yaml].1
+# name: test_parse_dynamic_prompts[weekly-02.yaml].1
   dict({
     'created_at': '2024-09-02T07:15:10.7646',
     'date': '2024-09-02',
