@@ -1,22 +1,45 @@
 """Data model for bullet journal llm."""
 
 import pathlib
+import textwrap
+from typing import Any
 
 import yaml
 from dataclasses import dataclass, field
 from mashumaro import DataClassDictMixin
-from mashumaro.config import BaseConfig
+from mashumaro.config import BaseConfig, TO_DICT_ADD_OMIT_NONE_FLAG
+from mashumaro.mixins.yaml import DataClassYAMLMixin
+from mashumaro.mixins.json import DataClassJSONMixin
+
 
 @dataclass
-class Prompt(DataClassDictMixin):
+class Prompt(DataClassYAMLMixin, DataClassJSONMixin):
     """A bullet journal prompt."""
 
     prompt: str | None = None
     filename: str | None = None
+    created_at: str | None = None
     content: str | None = None
+
+    def as_prompt(self) -> str:
+        """Return the prompt."""
+        parts = []
+        if self.prompt:
+            parts.append(self.prompt)
+        if self.filename:
+            parts.append(f"filename: {self.filename}")
+        if self.created_at:
+            parts.append(f"created_at: {self.created_at}")
+        if self.content:
+            parts.append(f"content:")
+            parts.append(self.content)
+        return "\n".join(parts)
+
 
     class Config(BaseConfig):
         omit_none = False
+        code_generation_options = [TO_DICT_ADD_OMIT_NONE_FLAG]
+
 
 @dataclass
 class RapidLogEntry:
@@ -26,32 +49,37 @@ class RapidLogEntry:
     content: str
     status: str | None = None
     label: str | None = None
-    critical: bool = False
+    critical: bool | None = None
     date: str | None = None
-    entries: list[str] = field(default_factory=list)
+    entries: list[str] | None = None
 
     class Config(BaseConfig):
         omit_none = False
+        code_generation_options = [TO_DICT_ADD_OMIT_NONE_FLAG]
+
 
 
 @dataclass
-class JournalPage(DataClassDictMixin):
+class JournalPage(DataClassYAMLMixin, DataClassJSONMixin):
     """A parsed notebook entry."""
 
     filename: str
     created_at: str
-    label: str
-    date: str
-    records: list[RapidLogEntry]
+    label: str | None = None
+    date: str | None = None
+    content: str | Any | None = None
+    records: list[RapidLogEntry] | None = None
 
     class Config(BaseConfig):
         omit_none = False
+        code_generation_options = [TO_DICT_ADD_OMIT_NONE_FLAG]
 
 
 @dataclass
-class DynamicPrompt:
+class DynamicPrompt(DataClassYAMLMixin, DataClassJSONMixin):
     """A dynamic prompt."""
 
+    filename: str
     prompt: Prompt
     pages: list[JournalPage] = field(default_factory=list)
 
@@ -66,4 +94,15 @@ class DynamicPrompt:
         prompt = Prompt.from_dict(docs[0])
         pages = [JournalPage.from_dict(doc) for doc in docs[1:]]
 
-        return cls(prompt=prompt, pages=pages)
+        return cls(filename=str(filename), prompt=prompt, pages=pages)
+
+    def as_prompt(self) -> str:
+        """Return the prompt."""
+        return "\n\n".join([
+            self.prompt.as_prompt(),
+            *(page.to_json() for page in self.pages)
+        ])
+
+    class Config(BaseConfig):
+        omit_none = False
+        code_generation_options = [TO_DICT_ADD_OMIT_NONE_FLAG]

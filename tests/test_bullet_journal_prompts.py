@@ -18,7 +18,7 @@ def test_parse_dynamic_prompts(filename: pathlib.Path, snapshot: SnapshotAsserti
     """Test that the bullet journal prompts are parsed correctly."""
 
     dynamic_prompt = DynamicPrompt.from_file(filename)
-    assert dynamic_prompt.prompt.to_dict() == snapshot
+    assert dynamic_prompt.prompt.to_yaml(omit_none=True) == snapshot
 
     for page in dynamic_prompt.pages:
-        assert page.to_dict() == snapshot
+        assert page.to_yaml(omit_none=True) == snapshot

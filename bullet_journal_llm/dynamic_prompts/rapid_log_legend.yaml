@@ -1,6 +1,6 @@
 ---
-prompt: >-
-  here is a legend for the different types of tasks in a rapid log:
+prompt: |
+  Here is a legend for the different types of tasks in a rapid log:
     o event
     • task
   * • critical task

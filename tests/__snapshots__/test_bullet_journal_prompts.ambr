@@ -1,632 +1,419 @@
 # serializer version: 1
 # name: test_parse_dynamic_prompts[daily.yaml]
-  dict({
-    'content': '''
-      1030 SUN
-        o Halloween Party @ 7PM @ Kid's school 
-        • Pick up candy
-        X Buy pumpkins
-      * > Call mom
-      1031 MON
-        - Trickortreaters were so cute
-      * • Call mom
-    ''',
-    'filename': 'Daily-00-P20221030210760068713clbdtpKcEWTi.png',
-    'prompt': None,
-  })
+  '''
+  content: "1030 SUN\n  o Halloween Party @ 7PM @ Kid's school \n  \u2022 Pick up candy\n
+    \ X Buy pumpkins\n* > Call mom\n\n1031 MON\n  - Trickortreaters were so cute\n*
+    \u2022 Call mom\n"
+  created_at: '2022-10-30T21:07:60.068713'
+  filename: Daily-00-P20221030210760068713clbdtpKcEWTi.png
+  prompt: Below is an example of some OCR text for a daily log for October 30th and
+    October 31st, 2022. The output json has a separate rapid log record for the date
+    it was logged under. Note that this is just one example and your task will be to
+    do this from an actual png image.
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[daily.yaml].1
-  dict({
-    'created_at': '2022-10-30T21:07:60.068713',
-    'date': '2022-10-30',
-    'filename': 'Daily-01-P20221030210760068713clbdtpKcEWTi.png',
-    'label': 'daily',
-    'records': list([
-      dict({
-        'content': "Halloween Party @ 7PM @ Kid's school",
-        'critical': False,
-        'date': '2022-10-30',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': 'migrated',
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Pick up candy',
-        'critical': False,
-        'date': '2022-10-30',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-      dict({
-        'content': 'Buy pumpkins',
-        'critical': False,
-        'date': '2022-10-30',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': 'completed',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Call mom',
-        'critical': True,
-        'date': '2022-10-30',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': 'migrated',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Trickortreaters were so cute',
-        'critical': False,
-        'date': '2022-10-31',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-      dict({
-        'content': 'Call mom',
-        'critical': True,
-        'date': '2022-10-31',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': 'migrated',
-        'type': 'task',
-      }),
-    ]),
-  })
+  '''
+  created_at: '2022-10-30T21:07:60.068713'
+  date: '2022-10-30'
+  filename: Daily-01-P20221030210760068713clbdtpKcEWTi.png
+  label: daily
+  records:
+  - content: Halloween Party @ 7PM @ Kid's school
+    date: '2022-10-30'
+    status: migrated
+    type: event
+  - content: Pick up candy
+    date: '2022-10-30'
+    type: note
+  - content: Buy pumpkins
+    date: '2022-10-30'
+    status: completed
+    type: task
+  - content: Call mom
+    critical: true
+    date: '2022-10-30'
+    status: migrated
+    type: task
+  - content: Trickortreaters were so cute
+    date: '2022-10-31'
+    type: note
+  - content: Call mom
+    critical: true
+    date: '2022-10-31'
+    status: migrated
+    type: task
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[default.yaml]
-  dict({
-    'content': None,
-    'filename': None,
-    'prompt': '''
-      You are analyzing PNG images of handwritten text from an e-ink notebook SuperNote A5X. The notes are written in English and are in a bullet journal format. You can see that the text is not perfect and will need some cleaning up
-      The Bullet Journal method is a system that combines elements of mindfulness, productivity, and self-discovery. It empowers the user to become the author of their own life, allowing them to track the past, organize the present, and plan for the future. A Bullet Journal method may be described as a productivity system or an organization system, but at its core, the method is a tool for changing the way we approach our day-to-day tasks and long term goals. The Bullet Journal method is centered on one key idea: intentionality. Why do we do what we do? What makes these goals meaningful to us? What tasks are the most relevant to  us at any given point in time? 
-      Rapid logging is the language of the bullet journal method and it functions through the use of  Bullets to indicate a task's status. A task starts with a simple dot "•" to represent a task. If a task is completed, mark it with an "X". If it's migrated to a future date, use a right arrow (>) to indicate that. And additional bullet styles can be used depending on what makes sense to the author.
-      Tasks within the Bullet Journal method can then fall within any of the logs used depending on where they fall in the author's timeline. Typically, journals contain a Daily Log, Weekly Log, and Monthly Log.
-      Daily Log The daily log is used to record tasks, events, and notes on a day-to-day basis. A daily log is simply the current date as the header and then a list of log entires. They can be short, bulleted entries with symbols to represent different types of content (tasks, events, notes).
-      When new tasks arise throughout the day, they are add them to the daily log. If a task is completed, it is marked with an "X". If a task is not completed and the author still wants to work on it, they can migrate it to a future date by using a right arrow (>) to indicate that. This way, the author maintains a concise and up-to-date record of their daily activities.
-      Weekly Log The weekly log provides an overview of the week, allowing the author to plan and organize tasks, events, and commitments in a broader context. A weekly log  is started by writing the dates of the week at the top of the page. Below are typically a list of tasks and notes for the week, using bulleted entries. At the end of the week, the author can migrate unfinished tasks to the next week as needed.
-      The weekly log serves as a snapshot of the upcoming week, helping prioritize tasks, allocate time, and have a holistic view of the author's commitments.
-      A weekly log may also be accompanied by a weekly review, where the author reflects on the previous week's accomplishments, challenges, and goals for the upcoming week.
-      Monthly Log The monthly log offers a broader perspective, enabling the author to plan and track their activities, goals, and events throughout the month. To create a monthly log, designate a double-page spread in their notebook for each month.
-      A monthly spread has the name of the month at the top of the list. The left-hand page has a list of dates (1-30/31) down the side. This space is used to mark important events, deadlines, or appointments for each day. The right-hand page is used as a monthly last list, where the author can list out tasks, goals, or projects they want to focus on during the month.
-      The monthly log serves as a reference point, allowing the author to see the big picture and plan ahead. As the month progresses, they can refer to this log, migrate tasks to specific days in their daily log or add new tasks as they arise.
-      Future Log A Future Log is designed to help the author plan and organize events, tasks, and important dates that extend beyond your current month. It serves as a forward-looking overview of the upcoming months, allowing the author to capture and track future commitments in a structured manner. The Future Log is a way to ensure important events or deadlines are not forgotten and time and resources can be allocated effectively. The format is usually a month name and a list of tasks or events scheduled for that month.
-    ''',
-  })
+  '''
+  prompt: "You are analyzing PNG images of handwritten text from an\ne-ink notebook
+    SuperNote A5X. The notes are written in English and are in a\nbullet journal format.
+    You can see that the text is not perfect and will need\nsome cleaning up\n\nThe
+    Bullet Journal method is a system that combines elements of mindfulness,\nproductivity,
+    and self-discovery. It empowers the user to become the author of their\nown life,
+    allowing them to track the past, organize the present, and plan for the\nfuture.
+    A Bullet Journal method may be described as a productivity system or an\norganization
+    system, but at its core, the method is a tool for changing the way\nwe approach
+    our day-to-day tasks and long term goals. The Bullet Journal method\nis centered
+    on one key idea: intentionality. Why do we do what we do? What makes\nthese goals
+    meaningful to us? What tasks are the most relevant to  us at any\ngiven point in
+    time? \n\nRapid logging is the language of the bullet journal method and it functions\nthrough
+    the use of  Bullets to indicate a task's status. A task starts with a simple\ndot
+    \"\u2022\" to represent a task. If a task is completed, mark it with an \"X\". If
+    it's\nmigrated to a future date, use a right arrow (>) to indicate that. And additional\nbullet
+    styles can be used depending on what makes sense to the author.\n\nTasks within
+    the Bullet Journal method can then fall within any of the logs used\ndepending on
+    where they fall in the author's timeline. Typically, journals contain\na Daily Log,
+    Weekly Log, and Monthly Log.\n\nDaily Log\n---------\nThe daily log is used to record
+    tasks, events, and notes on a day-to-day\nbasis. A daily log is simply the current
+    date as the header and then a list of\nlog entires. They can be short, bulleted
+    entries with symbols to represent\ndifferent types of content (tasks, events, notes).\n\nWhen
+    new tasks arise throughout the day, they are add them to the daily log. If\na task
+    is completed, it is marked with an \"X\". If a task is not completed and the\nauthor
+    still wants to work on it, they can migrate it to a future date by using\na right
+    arrow (>) to indicate that. This way, the author maintains a concise and up-to-date\nrecord
+    of their daily activities.\n\nWeekly Log\n----------\nThe weekly log provides an
+    overview of the week, allowing the author to plan and\norganize tasks, events, and
+    commitments in a broader context. A weekly log \nis started by writing the dates
+    of the week at the top of the page. Below are\ntypically a list of tasks and notes
+    for the week, using bulleted entries. At\nthe end of the week, the author can migrate
+    unfinished tasks to the next week\nas needed.\n\nThe weekly log serves as a snapshot
+    of the upcoming week, helping prioritize\ntasks, allocate time, and have a holistic
+    view of the author's commitments.\n\nA weekly log may also be accompanied by a weekly
+    review, where the author\nreflects on the previous week's accomplishments, challenges,
+    and goals for the upcoming\nweek.\n\nMonthly Log\n-----------\nThe monthly log offers
+    a broader perspective, enabling the author to plan and\ntrack their activities,
+    goals, and events throughout the month. To create a monthly\nlog, designate a double-page
+    spread in their notebook for each month.\n\nA monthly spread has the name of the
+    month at the top of the list. The left-hand\npage has a list of dates (1-30/31)
+    down the side. This space is used to mark important\nevents, deadlines, or appointments
+    for each day. The right-hand page is used as\na monthly last list, where the author
+    can list out tasks, goals, or projects they\nwant to focus on during the month.\n\nThe
+    monthly log serves as a reference point, allowing the author to see the big\npicture
+    and plan ahead. As the month progresses, they can refer to this log, migrate\ntasks
+    to specific days in their daily log or add new tasks as they arise.\n\nFuture Log\n----------\nA
+    Future Log is designed to help the author plan and organize events, tasks,\nand
+    important dates that extend beyond your current month. It serves as a\nforward-looking
+    overview of the upcoming months, allowing the author to capture\nand track future
+    commitments in a structured manner. The Future Log is a way\nto ensure important
+    events or deadlines are not forgotten and time and resources\ncan be allocated effectively.
+    The format is usually a month name and a list of\ntasks or events scheduled for
+    that month.\n"
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[monthly-01.yaml]
-  dict({
-    'content': '''
-      FEBRUARY REVIEW
-      
-      - What was the most memorable part of last month?
-        - The trip to the mountains with the family
-        - The team-building exercise at work
-      
-      - What were the three biggest lessons learned?
-        - The importance of taking time off & quality time with family
-        - The need to prioritize self-care
-        - The value of open communication
-      
-      - What are my goals for the upcoming month?
-        - Plan another weekend getaway with the family
-        - Spend at least one day a week outside in nature
-        - Schedule a meeting with my manager to discuss career goals
+  '''
+  content: "FEBRUARY REVIEW\n\n- What was the most memorable part of last month?\n  -
+    The trip to the mountains with the family\n  - The team-building exercise at work\n\n-
+    What were the three biggest lessons learned?\n  - The importance of taking time
+    off & quality time with family\n  - The need to prioritize self-care\n  - The value
+    of open communication\n\n- What are my goals for the upcoming month?\n  - Plan another
+    weekend getaway with the family\n  - Spend at least one day a week outside in nature\n
+    \ - Schedule a meeting with my manager to discuss career goals\n"
+  created_at: '2023-03-01T06:30:52.75344'
+  filename: Monthly-02-P2023030106305275344.png
+  prompt: There is a special "Monthly Review" page. This is used for reflection on the
+    previous monthy as well as the month ahead, usually in the form of prompt questions.
+    Typicaly the monthly reflection is a time to check in on progress on quarterly or
+    yearly goals, and to set new goals for the upcoming month.
   
-    ''',
-    'filename': 'Monthly-02-P2023030106305275344.png',
-    'prompt': 'There is a special "Monthly Review" page. This is used for reflection on the previous monthy as well as the month ahead, usually in the form of prompt questions. Typicaly the monthly reflection is a time to check in on progress on quarterly or yearly goals, and to set new goals for the upcoming month.',
-  })
+  '''
 # ---
 # name: test_parse_dynamic_prompts[monthly-01.yaml].1
-  dict({
-    'created_at': '2023-03-01T06:30:52.75344',
-    'date': '2023-03-01',
-    'filename': 'Monthly-02-P2023030106305275344.png',
-    'label': 'monthly',
-    'records': list([
-      dict({
-        'content': 'What was the most memorable part of last month?',
-        'critical': False,
-        'date': None,
-        'entries': list([
-          'The trip to the mountains with the family',
-          'The team-building exercise at work',
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-      dict({
-        'content': 'What were the three biggest lessons learned?',
-        'critical': False,
-        'date': None,
-        'entries': list([
-          'The importance of taking time off & quality time with family',
-          'The need to prioritize self-care',
-          'The value of open communication',
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-      dict({
-        'content': 'What are my goals for the upcoming month?',
-        'critical': False,
-        'date': None,
-        'entries': list([
-          'Plan another weekend getaway with the family',
-          'Spend at least one day a week outside in nature',
-          'Schedule a meeting with my manager to discuss career goals',
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-    ]),
-  })
+  '''
+  created_at: '2023-03-01T06:30:52.75344'
+  date: '2023-03-01'
+  filename: Monthly-02-P2023030106305275344.png
+  label: monthly
+  records:
+  - content: What was the most memorable part of last month?
+    entries:
+    - The trip to the mountains with the family
+    - The team-building exercise at work
+    type: note
+  - content: What were the three biggest lessons learned?
+    entries:
+    - The importance of taking time off & quality time with family
+    - The need to prioritize self-care
+    - The value of open communication
+    type: note
+  - content: What are my goals for the upcoming month?
+    entries:
+    - Plan another weekend getaway with the family
+    - Spend at least one day a week outside in nature
+    - Schedule a meeting with my manager to discuss career goals
+    type: note
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[monthly-02.yaml]
-  dict({
-    'content': '''
-      MARCH 2023
-      
-      1 W
-      2 T
-      3 F
-      4 S
-      5 S
-      6 M
-      7 T
-      8 W o Infrastructure Virtual Summit
-      9 T
-      10 F
-      11 S
-      12 S
-      13 M
-      14 T
-      15 W
-      16 T
-      17 F o St. Patrick's Day
-      18 S
-      19 S
-      20 M o Work Trip NYC
-      21 T o Work Trip NYC
-      22 W o Work Trip NYC o Return flight to SF
-      23 T
-      24 F
-      25 S
-      26 S
-      27 M o Kids no School
-      28 T o Kids no School
-      29 W o Kids no School
-      30 T o Kids no School
-      31 F o Kids no School
+  '''
+  content: 'MARCH 2023
   
-    ''',
-    'filename': 'Monthly-02-P20230301064260113420.png',
-    'prompt': 'The is an example of the calendar part of a Monthly Log which is a list of dates and weekday names where import event, tasks, or notes can be recorded to get a sense of the month at a glance.',
-  })
+  
+    1 W
+  
+    2 T
+  
+    3 F
+  
+    4 S
+  
+    5 S
+  
+    6 M
+  
+    7 T
+  
+    8 W o Infrastructure Virtual Summit
+  
+    9 T
+  
+    10 F
+  
+    11 S
+  
+    12 S
+  
+    13 M
+  
+    14 T
+  
+    15 W
+  
+    16 T
+  
+    17 F o St. Patrick''s Day
+  
+    18 S
+  
+    19 S
+  
+    20 M o Work Trip NYC
+  
+    21 T o Work Trip NYC
+  
+    22 W o Work Trip NYC o Return flight to SF
+  
+    23 T
+  
+    24 F
+  
+    25 S
+  
+    26 S
+  
+    27 M o Kids no School
+  
+    28 T o Kids no School
+  
+    29 W o Kids no School
+  
+    30 T o Kids no School
+  
+    31 F o Kids no School
+  
+    '
+  created_at: '2023-03-01T06:42:60.113420'
+  filename: Monthly-02-P20230301064260113420.png
+  prompt: The is an example of the calendar part of a Monthly Log which is a list of
+    dates and weekday names where import event, tasks, or notes can be recorded to get
+    a sense of the month at a glance.
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[monthly-02.yaml].1
-  dict({
-    'created_at': '2023-03-01T06:42:60.113420',
-    'date': '2023-03-01',
-    'filename': 'Monthly-02-P20230301064260113420.png',
-    'label': 'monthly',
-    'records': list([
-      dict({
-        'content': 'Infrastructure Virtual Summit',
-        'critical': False,
-        'date': '2023-03-08',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': "St. Patrick's Day",
-        'critical': False,
-        'date': '2023-03-17',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Work Trip NYC',
-        'critical': False,
-        'date': '2023-03-20',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Work Trip NYC',
-        'critical': False,
-        'date': '2023-03-21',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Work Trip NYC',
-        'critical': False,
-        'date': '2023-03-22',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Return flight to SF',
-        'critical': False,
-        'date': '2023-03-22',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Kids no School',
-        'critical': False,
-        'date': '2023-03-27',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Kids no School',
-        'critical': False,
-        'date': '2023-03-28',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Kids no School',
-        'critical': False,
-        'date': '2023-03-29',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Kids no School',
-        'critical': False,
-        'date': '2023-03-30',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-      dict({
-        'content': 'Kids no School',
-        'critical': False,
-        'date': '2023-03-31',
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'event',
-      }),
-    ]),
-  })
+  '''
+  created_at: '2023-03-01T06:42:60.113420'
+  date: '2023-03-01'
+  filename: Monthly-02-P20230301064260113420.png
+  label: monthly
+  records:
+  - content: Infrastructure Virtual Summit
+    date: '2023-03-08'
+    type: event
+  - content: St. Patrick's Day
+    date: '2023-03-17'
+    type: event
+  - content: Work Trip NYC
+    date: '2023-03-20'
+    type: event
+  - content: Work Trip NYC
+    date: '2023-03-21'
+    type: event
+  - content: Work Trip NYC
+    date: '2023-03-22'
+    type: event
+  - content: Return flight to SF
+    date: '2023-03-22'
+    type: event
+  - content: Kids no School
+    date: '2023-03-27'
+    type: event
+  - content: Kids no School
+    date: '2023-03-28'
+    type: event
+  - content: Kids no School
+    date: '2023-03-29'
+    type: event
+  - content: Kids no School
+    date: '2023-03-30'
+    type: event
+  - content: Kids no School
+    date: '2023-03-31'
+    type: event
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[monthly-03.yaml]
-  dict({
-    'content': '''
-      MONTHLY 2023-03
-      
-      X Plan weekend getaway with family
-      • Look up hiking trails in the area
-      < Schedule meeting with manager to discuss career goals
-      • Squeaky garage door
-      *X Call mom
-      X Finish salary report
-      • Finish reading "Lessons in Chemistry"
+  '''
+  content: "MONTHLY 2023-03\n\nX Plan weekend getaway with family\n\u2022 Look up hiking
+    trails in the area\n< Schedule meeting with manager to discuss career goals\n\u2022
+    Squeaky garage door\n*X Call mom\nX Finish salary report\n\u2022 Finish reading
+    \"Lessons in Chemistry\"\n"
+  created_at: '2023-03-01T06:42:60.113420'
+  filename: Monthly-03-P20230301064260113420.png
+  prompt: The monthly log will be a snapshot of tasks to accomplish during the month.
+    This is in the normal rapid logging format with tasks.
   
-    ''',
-    'filename': 'Monthly-03-P20230301064260113420.png',
-    'prompt': 'The monthly log will be a snapshot of tasks to accomplish during the month. This is in the normal rapid logging format with tasks.',
-  })
+  '''
 # ---
 # name: test_parse_dynamic_prompts[monthly-03.yaml].1
-  dict({
-    'created_at': '2023-03-01T06:42:60.113420',
-    'date': '2023-03-01',
-    'filename': 'Monthly-03-P20230301064260113420.png',
-    'label': 'monthly',
-    'records': list([
-      dict({
-        'content': 'Plan weekend getaway with family',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': None,
-        'status': 'completed',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Look up hiking trails in the area',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Schedule meeting with manager to discuss career goals',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Squeaky garage door',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Call mom',
-        'critical': True,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': None,
-        'status': 'completed',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Finish salary report',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': None,
-        'status': 'completed',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Finish reading "Lessons in Chemistry"',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'task',
-      }),
-    ]),
-  })
+  '''
+  created_at: '2023-03-01T06:42:60.113420'
+  date: '2023-03-01'
+  filename: Monthly-03-P20230301064260113420.png
+  label: monthly
+  records:
+  - content: Plan weekend getaway with family
+    status: completed
+    type: task
+  - content: Look up hiking trails in the area
+    type: task
+  - content: Schedule meeting with manager to discuss career goals
+    type: task
+  - content: Squeaky garage door
+    type: task
+  - content: Call mom
+    critical: true
+    status: completed
+    type: task
+  - content: Finish salary report
+    status: completed
+    type: task
+  - content: Finish reading "Lessons in Chemistry"
+    type: task
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[profile.yaml]
-  dict({
-    'content': None,
-    'filename': None,
-    'prompt': 'Allen Porter, software engineer from Los Angeles, CA. Uses the notebook to track work, hobbies, and family obligations.',
-  })
+  '''
+  prompt: 'Author: Allen Porter, software engineer from Los Angeles, CA. Uses the notebook
+    to track work, hobbies, and family obligations.'
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[rapid_log_legend.yaml]
-  dict({
-    'content': None,
-    'filename': None,
-    'prompt': '''
-      here is a legend for the different types of tasks in a rapid log:
-        o event
-        • task
-      * • critical task
-        X completed task
-        - note
-        < migrated to the future log
-        > migrated the task forward to another daily, weekly, or monthly log
-      
-      Note that * can be added to any task to indicate it is a critical task (e.g. a critical task can be completed or migrated)
-    ''',
-  })
+  '''
+  prompt: "Here is a legend for the different types of tasks in a rapid log:\n  o event\n
+    \ \u2022 task\n* \u2022 critical task\n  X completed task\n  - note\n  < migrated
+    to the future log\n  > migrated the task forward to another daily, weekly, or monthly
+    log\n\nNote that * can be added to any task to indicate it is a critical task (e.g.
+    a\ncritical task can be completed or migrated)\n"
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[weekly-01.yaml]
-  dict({
-    'content': '''
-      WEEKLY REVIEW 0826-0901
-      
-      - What did I accomplish last week?
-        - After completing the salary analysis, i got assigned to do the final report
-        - I also got a lot of positive feedback from the team on the presentation
-      - What were my biggest challenges?
-        - I had a hard time getting the data for the salary report
-        - Perhaps I should consider asking for help
-      - What are my goals for next week?
-        - Make sure i talk to at least one parent
-        - Finish the salary report
+  '''
+  content: "WEEKLY REVIEW 0826-0901\n\n- What did I accomplish last week?\n  - After
+    completing the salary analysis, i got assigned to do the final report\n  - I also
+    got a lot of positive feedback from the team on the presentation\n- What were my
+    biggest challenges?\n  - I had a hard time getting the data for the salary report\n
+    \ - Perhaps I should consider asking for help\n- What are my goals for next week?\n
+    \ - Make sure i talk to at least one parent\n  - Finish the salary report\n"
+  created_at: '2024-09-02T07:15:10.7646'
+  filename: Weeky-07-P2024090207100618749.png
+  prompt: 'There is a special "Weekly Review" page. This is used for reflection on the
+    previous week as well as the week ahead, and is usually in the form of prompt questions. '
   
-    ''',
-    'filename': 'Weeky-07-P2024090207100618749.png',
-    'prompt': 'There is a special "Weekly Review" page. This is used for reflection on the previous week as well as the week ahead, and is usually in the form of prompt questions. ',
-  })
+  '''
 # ---
 # name: test_parse_dynamic_prompts[weekly-01.yaml].1
-  dict({
-    'created_at': '2024-09-02T07:15:10.7646',
-    'date': '2024-09-01',
-    'filename': 'Weeky-08-P2024090207150618749.png',
-    'label': 'weekly',
-    'records': list([
-      dict({
-        'content': 'What did I accomplish last week?',
-        'critical': False,
-        'date': None,
-        'entries': list([
-          'After completing the salary analysis, i got assigned to do the final report',
-          'I also got a lot of positive feedback from the team on the presentation',
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-      dict({
-        'content': 'What were my biggest challenges?',
-        'critical': False,
-        'date': None,
-        'entries': list([
-          'I had a hard time getting the data for the salary report',
-          'Perhaps I should consider asking for help',
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-      dict({
-        'content': 'What are my goals for next week?',
-        'critical': False,
-        'date': None,
-        'entries': list([
-          'Make sure i talk to at least one parent',
-          'Finish the salary report',
-        ]),
-        'label': None,
-        'status': None,
-        'type': 'note',
-      }),
-    ]),
-  })
+  '''
+  created_at: '2024-09-02T07:15:10.7646'
+  date: '2024-09-01'
+  filename: Weeky-08-P2024090207150618749.png
+  label: weekly
+  records:
+  - content: What did I accomplish last week?
+    entries:
+    - After completing the salary analysis, i got assigned to do the final report
+    - I also got a lot of positive feedback from the team on the presentation
+    type: note
+  - content: What were my biggest challenges?
+    entries:
+    - I had a hard time getting the data for the salary report
+    - Perhaps I should consider asking for help
+    type: note
+  - content: What are my goals for next week?
+    entries:
+    - Make sure i talk to at least one parent
+    - Finish the salary report
+    type: note
+  
+  '''
 # ---
 # name: test_parse_dynamic_prompts[weekly-02.yaml]
-  dict({
-    'content': '''
-      WEEKLY 0902-0908
-      
-      Personal
-        X Buy groceries
-        • Go to the gym 3x times this week X X •
-        • Call mom
-        < Clean out closet
-      
-      Work
-      * X Initial draft of salary report
-        • Check if Kendra is available to meet this week
-        < Send out report by Wednesday
+  '''
+  content: "WEEKLY 0902-0908\n\nPersonal\n  X Buy groceries\n  \u2022 Go to the gym
+    3x times this week X X \u2022\n  \u2022 Call mom\n  < Clean out closet\n\nWork\n*
+    X Initial draft of salary report\n  \u2022 Check if Kendra is available to meet
+    this week\n  < Send out report by Wednesday\n"
+  created_at: '2024-09-02T07:15:10.7646'
+  filename: Weeky-08-P2024090207150618749.png
+  prompt: The weekly log will be a snapshot of tasks to accomplish during the week.
+    This is in the normal rapid logging format with tasks and they may be grouped into
+    different categories of tasks.
   
-    ''',
-    'filename': 'Weeky-08-P2024090207150618749.png',
-    'prompt': 'The weekly log will be a snapshot of tasks to accomplish during the week. This is in the normal rapid logging format with tasks and they may be grouped into different categories of tasks.',
-  })
+  '''
 # ---
 # name: test_parse_dynamic_prompts[weekly-02.yaml].1
-  dict({
-    'created_at': '2024-09-02T07:15:10.7646',
-    'date': '2024-09-02',
-    'filename': 'Weeky-08-P202409020715107646.png',
-    'label': 'weekly',
-    'records': list([
-      dict({
-        'content': 'Buy groceries',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': 'personal',
-        'status': 'completed',
-        'type': 'note',
-      }),
-      dict({
-        'content': 'Go to the gym 3x',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': 'personal',
-        'status': 'completed',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Call mom',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': 'personal',
-        'status': None,
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Clean out closet',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': 'personal',
-        'status': 'migrated',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Initial draft of salary report',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': 'work',
-        'status': 'completed',
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Check if Kendra is available to meet this week',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': 'work',
-        'status': None,
-        'type': 'task',
-      }),
-      dict({
-        'content': 'Send out report by Wednesday',
-        'critical': False,
-        'date': None,
-        'entries': list([
-        ]),
-        'label': 'work',
-        'status': 'migrated',
-        'type': 'task',
-      }),
-    ]),
-  })
+  '''
+  created_at: '2024-09-02T07:15:10.7646'
+  date: '2024-09-02'
+  filename: Weeky-08-P202409020715107646.png
+  label: weekly
+  records:
+  - content: Buy groceries
+    label: personal
+    status: completed
+    type: note
+  - content: Go to the gym 3x
+    label: personal
+    status: completed
+    type: task
+  - content: Call mom
+    label: personal
+    type: task
+  - content: Clean out closet
+    label: personal
+    status: migrated
+    type: task
+  - content: Initial draft of salary report
+    label: work
+    status: completed
+    type: task
+  - content: Check if Kendra is available to meet this week
+    label: work
+    type: task
+  - content: Send out report by Wednesday
+    label: work
+    status: migrated
+    type: task
+  
+  '''
 # ---
